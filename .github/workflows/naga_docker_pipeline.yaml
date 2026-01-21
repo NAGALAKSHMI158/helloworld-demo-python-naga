@@ -21,6 +21,11 @@ jobs:
         with:
           username: ${{ vars.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
+
+      - name: push image
+        run: docker push ${{ vars.DOCKER_USERNAME }}/naga_docker_image:v1 
+
+          
    
 
         
