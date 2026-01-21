@@ -1,0 +1,29 @@
+name: docker-ci-pipeline
+
+on: push
+
+jobs:
+  dockerci-job:
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code Checkout
+        uses: actions/checkout@v6
+
+      - name: Build image
+        run: docker build -t ${{ vars.DOCKER_USERNAME }}/naga_docker_image:v1 .
+        
+      - name: verify image
+        run: docker images
+
+      - name: Docker Login
+        uses: docker/login-action@v3.6.0
+        with:
+          username: ${{ vars.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+   
+
+        
+        
+ 
+ 
