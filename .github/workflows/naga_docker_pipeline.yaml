@@ -75,7 +75,7 @@ jobs:
           minikube service list
           minikube service my-service1 --url
           echo -n "------------------opening the service-------------------"
-          curl -f $(minikube service my-service1 --url)
+          curl -f $(minikube service my-service1 -n python-app --url)
  
 
 
