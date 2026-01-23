@@ -73,7 +73,7 @@ jobs:
     - name: Test service URLs
       run: |
           minikube service list
-          minikube service my-service1 --url
+          minikube service my-service1 -n python-app --url
           echo -n "------------------opening the service-------------------"
           curl -f $(minikube service my-service1 -n python-app --url)
  
