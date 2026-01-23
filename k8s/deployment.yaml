@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nagadeployment
+  namespace: python-app
+  labels:
+    app: nagahelloworld
+    name: nagalakshmi
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nagahelloworld
+      name: nagalakshmi
+  template:
+    metadata:
+      labels:
+        app: nagahelloworld
+        name: nagalakshmi
+    spec:
+      containers:
+      - name: nagahelloworld
+        image: nagalakshmisubramanian/naga_docker_image:v1
+        ports:
+        - containerPort: 8080
